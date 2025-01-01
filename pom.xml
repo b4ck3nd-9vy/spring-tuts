@@ -10,6 +10,8 @@
 
   <properties>
     <springboot.version>3.4.1</springboot.version>
+
+    <compiler.version>3.13.0</compiler.version>
   </properties>
 
   <modules>
