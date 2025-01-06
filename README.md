@@ -30,6 +30,18 @@
 - Testing: mock objects, TestContext framework, Spring MVC Test, WebTestClient
 - Integration: remoting, JMS, JCA, JMX, email, tasks, scheduling, cache and observability
 
+### Day 1: Spring App Configuration
+- Properties and Configuration: https://docs.spring.io/spring-boot/how-to/properties-and-configuration.html
+- Externalized Configuration: https://docs.spring.io/spring-boot/reference/features/external-config.html
+- Resources: https://docs.spring.io/spring-framework/reference/core/resources.html
+- Using the Plugin: https://docs.spring.io/spring-boot/maven-plugin/using.html
+
+### Day 2: Spring Beans and Dependency Injection
+
+### Profiles
+
+### Auto-configuration and Troubleshooting
+
 ## Spring REST WebFlux
 
 ## Spring Data JPA
