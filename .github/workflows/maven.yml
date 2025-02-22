@@ -14,6 +14,10 @@ on:
   pull_request:
     branches: [ "main" ]
 
+permissions:
+  contents: read
+  packages: read  # Required to read GitHub Packages
+
 jobs:
   build:
 
@@ -29,6 +33,12 @@ jobs:
         java-version: '21'
         distribution: 'temurin'
         cache: maven
+        server-id: github
+        settings-path: ${{ github.workspace }}
+    - name: Configure Maven Authentication
+      run: |
+        mkdir -p ~/.m2
+        echo "<settings><servers><server><id>github</id><username>${{ github.actor }}</username><password>${{ secrets.GH_PACKAGES_READ_TOKEN }}</password></server></servers></settings>" > ~/.m2/settings.xml
     - name: Build with Maven
       run: mvn -B verify --file pom.xml
 
