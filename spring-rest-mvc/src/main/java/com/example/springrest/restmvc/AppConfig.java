@@ -12,5 +12,6 @@ public class AppConfig {
 
   private String name;
   private List<String> userRoles;
+  private String message;
 
 }
