@@ -15,6 +15,7 @@ public class PropertiesController {
   private final AppConfig appConfig;
   private final CustomConfig customConfig;
   private final RandomConfig randomConfig;
+  private final ProfileConfig profileConfig;
 
   @Value("${app.encoding}")
   private String appEncoding;
@@ -45,6 +46,11 @@ public class PropertiesController {
   @GetMapping("/randomConfig")
   public RandomConfig randomConfig() {
     return randomConfig;
+  }
+
+  @GetMapping("/profileConfig")
+  public String nameFromProfileConfig() {
+    return profileConfig.getName();
   }
 
 }
