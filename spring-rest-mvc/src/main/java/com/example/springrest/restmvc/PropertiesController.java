@@ -23,6 +23,9 @@ public class PropertiesController {
   @Value("${app.java.version}")
   private String appJavaVersion;
 
+  @Value("${app.config.custom-message}")
+  private String customMessage;
+
   @PostConstruct
   public void printMessage() {
     log.info(customConfig.getWelcomeMessage());
@@ -31,6 +34,11 @@ public class PropertiesController {
   @GetMapping("/appInfo")
   public String appInfo() {
     return String.format("App Encoding: %s, Java Version: %s", appEncoding, appJavaVersion);
+  }
+
+  @GetMapping("/appMessage")
+  public String appMessage() {
+    return customMessage;
   }
 
   @GetMapping("/appConfig")

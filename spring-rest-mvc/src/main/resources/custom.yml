@@ -1,0 +1,3 @@
+app:
+  config:
+    custom-message: I'm a custom message.
