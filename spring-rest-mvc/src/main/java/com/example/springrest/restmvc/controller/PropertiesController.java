@@ -30,6 +30,9 @@ public class PropertiesController {
   @Value("${app.config.custom-message}")
   private String customMessage;
 
+  @Value("${app.config.early-message}")
+  private String earlyMessage;
+
   @PostConstruct
   public void printMessage() {
     log.info(customConfig.getWelcomeMessage());
@@ -43,6 +46,11 @@ public class PropertiesController {
   @GetMapping("/appMessage")
   public String appMessage() {
     return customMessage;
+  }
+
+  @GetMapping("/appMessageEarly")
+  public String appMessageEarly() {
+    return earlyMessage;
   }
 
   @GetMapping("/appConfig")

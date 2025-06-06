@@ -1,1 +1,4 @@
-org.springframework.boot.env.EnvironmentPostProcessor=com.example.springrest.restmvc.config.CustomConfigLoader,com.example.springrest.restmvc.config.YamlConfigLoader
+org.springframework.boot.env.EnvironmentPostProcessor=\
+  com.example.springrest.restmvc.config.CustomConfigLoader,com.example.springrest.restmvc.config.YamlConfigLoader
+org.springframework.context.ApplicationContextInitializer=\
+  com.example.springrest.restmvc.config.CustomContextInitializer
