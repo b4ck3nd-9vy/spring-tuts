@@ -4,6 +4,7 @@ import com.example.springrest.restmvc.config.AppConfig;
 import com.example.springrest.restmvc.config.CustomConfig;
 import com.example.springrest.restmvc.config.ProfileConfig;
 import com.example.springrest.restmvc.config.RandomConfig;
+import com.example.springrest.restmvc.entity.HostInfo;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -32,6 +33,9 @@ public class PropertiesController {
 
   @Value("${app.config.early-message}")
   private String earlyMessage;
+
+  @Value("${my.server}")
+  private HostInfo hostInfo;
 
   @PostConstruct
   public void printMessage() {
@@ -71,6 +75,11 @@ public class PropertiesController {
   @GetMapping("/profileConfig")
   public String nameFromProfileConfig() {
     return profileConfig.getName();
+  }
+
+  @GetMapping("/customTypeBindingConfig")
+  public String server() {
+    return hostInfo.toString();
   }
 
 }
