@@ -5,6 +5,7 @@ import com.example.springrest.restmvc.config.CustomConfig;
 import com.example.springrest.restmvc.config.ProfileConfig;
 import com.example.springrest.restmvc.config.RandomConfig;
 import com.example.springrest.restmvc.entity.HostInfo;
+import com.example.springrest.restmvc.entity.HostInfoLegacy;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -36,6 +37,9 @@ public class PropertiesController {
 
   @Value("${my.server}")
   private HostInfo hostInfo;
+
+  @Value("${my.server}")
+  private HostInfoLegacy hostInfoLegacy;
 
   @PostConstruct
   public void printMessage() {
@@ -80,6 +84,11 @@ public class PropertiesController {
   @GetMapping("/customTypeBindingConfig")
   public String server() {
     return hostInfo.toString();
+  }
+
+  @GetMapping("/customTypeBindingConfigLegacy")
+  public String serverLegacy() {
+    return hostInfoLegacy.toString();
   }
 
 }
