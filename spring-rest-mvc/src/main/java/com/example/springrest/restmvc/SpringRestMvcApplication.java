@@ -1,5 +1,7 @@
 package com.example.springrest.restmvc;
 
+import com.example.springrest.restmvc.config.AppConfig;
+import com.example.springrest.restmvc.config.RandomConfig;
 import java.util.HashMap;
 import java.util.Map;
 import org.springframework.boot.SpringApplication;

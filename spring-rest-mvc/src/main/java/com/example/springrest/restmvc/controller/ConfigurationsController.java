@@ -1,5 +1,6 @@
-package com.example.springrest.restmvc;
+package com.example.springrest.restmvc.controller;
 
+import com.example.springrest.restmvc.entity.Person;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;

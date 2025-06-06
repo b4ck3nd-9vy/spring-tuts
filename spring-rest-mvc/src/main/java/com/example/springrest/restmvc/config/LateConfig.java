@@ -1,4 +1,4 @@
-package com.example.springrest.restmvc;
+package com.example.springrest.restmvc.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;

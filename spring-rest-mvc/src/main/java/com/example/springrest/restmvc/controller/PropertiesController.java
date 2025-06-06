@@ -1,5 +1,9 @@
-package com.example.springrest.restmvc;
+package com.example.springrest.restmvc.controller;
 
+import com.example.springrest.restmvc.config.AppConfig;
+import com.example.springrest.restmvc.config.CustomConfig;
+import com.example.springrest.restmvc.config.ProfileConfig;
+import com.example.springrest.restmvc.config.RandomConfig;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

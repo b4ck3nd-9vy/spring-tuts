@@ -1,4 +1,4 @@
-package com.example.springrest.restmvc;
+package com.example.springrest.restmvc.config;
 
 public interface ProfileConfig {
 

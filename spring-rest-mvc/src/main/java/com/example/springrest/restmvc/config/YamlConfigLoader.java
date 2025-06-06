@@ -1,4 +1,4 @@
-package com.example.springrest.restmvc;
+package com.example.springrest.restmvc.config;
 
 import java.io.IOException;
 import org.springframework.boot.SpringApplication;
