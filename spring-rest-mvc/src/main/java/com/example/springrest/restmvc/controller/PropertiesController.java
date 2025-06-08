@@ -1,6 +1,8 @@
 package com.example.springrest.restmvc.controller;
 
 import com.example.springrest.restmvc.config.AppConfig;
+import com.example.springrest.restmvc.config.ConversionConfig;
+import com.example.springrest.restmvc.config.CryptedConfigParser;
 import com.example.springrest.restmvc.config.CustomConfig;
 import com.example.springrest.restmvc.config.ProfileConfig;
 import com.example.springrest.restmvc.config.RandomConfig;
@@ -22,6 +24,8 @@ public class PropertiesController {
   private final CustomConfig customConfig;
   private final RandomConfig randomConfig;
   private final ProfileConfig profileConfig;
+  private final ConversionConfig conversionConfig;
+  private final CryptedConfigParser cryptedConfigParser;
 
   @Value("${app.encoding}")
   private String appEncoding;
@@ -89,6 +93,16 @@ public class PropertiesController {
   @GetMapping("/customTypeBindingConfigLegacy")
   public String serverLegacy() {
     return hostInfoLegacy.toString();
+  }
+
+  @GetMapping("/conversionConfig")
+  public ConversionConfig conversionConfig() {
+    return conversionConfig;
+  }
+
+  @GetMapping("/cryptedConfig")
+  public String cryptedConfig() {
+    return cryptedConfigParser.getSecret();
   }
 
 }

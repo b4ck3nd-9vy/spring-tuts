@@ -1,6 +1,8 @@
 package com.example.springrest.restmvc;
 
 import com.example.springrest.restmvc.config.AppConfig;
+import com.example.springrest.restmvc.config.ConversionConfig;
+import com.example.springrest.restmvc.config.CryptedConfig;
 import com.example.springrest.restmvc.config.RandomConfig;
 import java.util.HashMap;
 import java.util.Map;
@@ -9,7 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
 @SpringBootApplication
-@EnableConfigurationProperties({AppConfig.class, RandomConfig.class})
+@EnableConfigurationProperties({AppConfig.class, RandomConfig.class, ConversionConfig.class, CryptedConfig.class})
 public class SpringRestMvcApplication {
 
   public static void main(String[] args) {
