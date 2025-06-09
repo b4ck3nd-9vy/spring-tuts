@@ -101,28 +101,43 @@ Spring Boot provides a comprehensive set of official starter dependencies to str
 
 ## Spring REST MVC
 - Spring Boot: 'starter' dependencies, production-ready features (metrics, health checks, externalized configuration)
-- Core technologies: dependency injection, events, resources, i18n, validation, data binding, type conversion, SpEL, AOP
+- Web Servlet: Spring MVC, WebSocket, SockJS, STOMP messaging
 - Testing: mock objects, TestContext framework, Spring MVC Test, WebTestClient
-- Integration: remoting, JMS, JCA, JMX, email, tasks, scheduling, cache and observability
+- Integration: remoting, REST clients, JMS, JCA, JMX, email, tasks, scheduling, cache and observability
 
 ### Spring App Configuration
 - Properties and Configuration: https://docs.spring.io/spring-boot/how-to/properties-and-configuration.html
 - Externalized Configuration: https://docs.spring.io/spring-boot/reference/features/external-config.html
 - Resources: https://docs.spring.io/spring-framework/reference/core/resources.html
 - Using the Plugin: https://docs.spring.io/spring-boot/maven-plugin/using.html
+- Spring Properties: https://docs.spring.io/spring-framework/reference/appendix.html
 
 ### Profiles
 - https://docs.spring.io/spring-boot/reference/features/profiles.html
 
+### Logging
+- https://docs.spring.io/spring-boot/reference/features/logging.html
+- https://docs.spring.io/spring-boot/how-to/logging.html
+
 ### Auto-configuration and Troubleshooting
 - https://docs.spring.io/spring-boot/reference/features/developing-auto-configuration.html
 
+### JSON
+- https://docs.spring.io/spring-boot/reference/features/json.html
+
 ### Spring MVC
 - https://docs.spring.io/spring-boot/how-to/spring-mvc.html
+- https://docs.spring.io/spring-boot/reference/web/servlet.html
+- https://docs.spring.io/spring-boot/how-to/http-clients.html
+- https://docs.spring.io/spring-boot/reference/io/rest-client.html
+
+## Spring Framework
+- Core technologies: IoC container, dependency injection, events, resources, i18n, validation, data binding, type conversion, SpEL, AOP, AOT
 
 ### Spring Beans and Dependency Injection
 
 ## Spring REST WebFlux
+- Web reactive: Spring WebFlux, WebClient, WebSocket, RSocket
 
 ## Spring Data JPA
-- Data access: transactions, DAO support, JDBC, ORM, Marshalling XML
+- Data access: transactions, DAO support, JDBC, R2DBC, ORM, Marshalling XML
