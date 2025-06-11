@@ -1,6 +1,10 @@
 package com.example.springrest.restmvc.controller;
 
+import com.example.springrest.restmvc.entity.AbstractEntity;
 import com.example.springrest.restmvc.entity.SimpleEntity;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -8,8 +12,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/json")
+@RequiredArgsConstructor
 @Slf4j
 public class JsonController {
+
+  private final ObjectMapper objectMapper;
 
   @GetMapping("/simpleEntity")
   public SimpleEntity simpleEntity() {
@@ -24,7 +31,17 @@ public class JsonController {
      "-PT-6H+3M"  -- parses as "+6 hours and -3 minutes"
      */
 
-    return SimpleEntity.of("simple", "PT20.345S");
+    SimpleEntity entity = SimpleEntity.of("simple", "PT20.345S");
+    entity.add("key1", "value1");
+    entity.add("key2", "value2");
+    return entity;
+  }
+
+  @GetMapping("/abstractEntity")
+  public String abstractEntity() throws JsonProcessingException {
+    String jsonObject = "{ \"type\": \"one\", \"abstract_name\": \"Abstract Entity\", \"model_one\": 2 }";
+    AbstractEntity entity = objectMapper.readValue(jsonObject, AbstractEntity.class);
+    return objectMapper.writeValueAsString(entity);
   }
 
 }

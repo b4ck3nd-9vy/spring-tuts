@@ -124,6 +124,14 @@ Spring Boot provides a comprehensive set of official starter dependencies to str
 
 ### JSON
 - https://docs.spring.io/spring-boot/reference/features/json.html
+- Basic Mapping Annotations: JsonProperty, JsonIgnore, JsonInclude
+- Structure Control Annotations: JsonPropertyOrder, JsonUnwrapped
+- Unknown Handling Annotations: JsonIgnoreProperties, JsonAnySetter, JsonAnyGetter
+- Custom Behavior Annotations: JsonSerialize, JsonDeserialize, JsonFormat
+- Polymorphism Annotations: JsonTypeInfo, JsonSubTypes
+- Identity Annotations: JsonIdentityInfo
+- Selective Fields Annotations: JsonView
+- Enums Annotations: JsonValue, JsonCreator
 
 ### Spring MVC
 - https://docs.spring.io/spring-boot/how-to/spring-mvc.html
