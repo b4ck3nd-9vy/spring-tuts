@@ -1,8 +1,12 @@
 package com.example.springrest.restmvc.config;
 
+import com.example.springrest.restmvc.config.CustomJsonComponent.Deserializer;
+import com.example.springrest.restmvc.config.CustomJsonComponent.Serializer;
+import com.example.springrest.restmvc.entity.ComplexEntity;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.jackson.Jackson2ObjectMapperBuilderCustomizer;
@@ -18,10 +22,15 @@ public class ObjectMapperConfig {
   @Bean
   @ConditionalOnMissingBean(ObjectMapper.class)
   public ObjectMapper defaultObjectMapper() {
+    SimpleModule module = new SimpleModule();
+    module.addSerializer(ComplexEntity.class, new Serializer());
+    module.addDeserializer(ComplexEntity.class, new Deserializer());
+
     ObjectMapper objectMapper = new ObjectMapper();
     objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
     objectMapper.configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false);
     objectMapper.registerModule(new JavaTimeModule());
+    objectMapper.registerModule(module);
     objectMapper.setPropertyNamingStrategy(new CustomNamingStrategy());
     return objectMapper;
   }
@@ -38,7 +47,10 @@ public class ObjectMapperConfig {
   @Bean
   @Profile("dev")
   public Jackson2ObjectMapperBuilderCustomizer customizer() {
-      return builder -> builder.modules(new JavaTimeModule());
+    SimpleModule module = new SimpleModule();
+    module.addSerializer(ComplexEntity.class, new CustomJsonSerializer());
+    module.addDeserializer(ComplexEntity.class, new CustomJsonDeserializer());
+    return builder -> builder.modules(new JavaTimeModule(), module);
   }
 
 }

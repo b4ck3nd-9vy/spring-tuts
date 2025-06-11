@@ -1,11 +1,13 @@
 package com.example.springrest.restmvc.controller;
 
 import com.example.springrest.restmvc.entity.AbstractEntity;
+import com.example.springrest.restmvc.entity.ComplexEntity;
 import com.example.springrest.restmvc.entity.SimpleEntity;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.jackson.JsonComponentModule;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -41,6 +43,13 @@ public class JsonController {
   public String abstractEntity() throws JsonProcessingException {
     String jsonObject = "{ \"type\": \"one\", \"abstract_name\": \"Abstract Entity\", \"model_one\": 2 }";
     AbstractEntity entity = objectMapper.readValue(jsonObject, AbstractEntity.class);
+    return objectMapper.writeValueAsString(entity);
+  }
+
+  @GetMapping("/complexEntity")
+  public String complexEntity() throws JsonProcessingException {
+    String jsonObject = "{ \"full_name\": \"firstName lastName\" }";
+    ComplexEntity entity = objectMapper.readValue(jsonObject, ComplexEntity.class);
     return objectMapper.writeValueAsString(entity);
   }
 
